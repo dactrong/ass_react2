@@ -1,6 +1,9 @@
 import { Col, Row, Space, Table, Tag, Typography } from 'antd';
 import React from 'react';
-import { FormOutlined, CloseOutlined ,PlusSquareTwoTone} from '@ant-design/icons'
+import { FormOutlined, CloseOutlined, PlusSquareTwoTone } from '@ant-design/icons'
+import styled from 'styled-components'
+import { Link } from 'react-router-dom';
+
 const columns = [
     {
         title: '/',
@@ -35,22 +38,12 @@ const columns = [
         key: 'icon1',
         dataIndex: 'icon1',
 
-    },
-    {
-        title: 'Action',
-        key: 'action',
-        render: (_, record) => (
-            <Space size="middle">
-                <a>Invite {record.name}</a>
-                <a>Delete</a>
-            </Space>
-        ),
-    },
+    }
 ];
 const data = [
     {
         key: '1',
-        name: 'John Brown',
+        name: 'Iphon',
         stt: 1,
         money: '10.000đ',
         desc: 'Lorem Ipsum chỉ đơn giản là một đoạn văn bản giả, ',
@@ -60,7 +53,7 @@ const data = [
     },
     {
         key: '2',
-        name: 'Jim Green',
+        name: 'Sam Sung',
         stt: 2,
         money: '10.000đ',
         desc: 'Lorem Ipsum chỉ đơn giản là một đoạn văn bản giả, ',
@@ -69,7 +62,7 @@ const data = [
     },
     {
         key: '3',
-        name: 'Joe Black',
+        name: 'Oppo',
         stt: 3,
         money: '10.000đ',
         desc: 'Lorem Ipsum chỉ đơn giản là một đoạn văn bản giả, ',
@@ -80,17 +73,34 @@ const data = [
 const { Title } = Typography;
 
 
-const ProductList = () =>(
+const ProductList = () => (
     <>
-     <Row>
-      <Col span={12}><Title>Điện thoại</Title></Col>
-      <Col span={12}><PlusSquareTwoTone /></Col>
-    </Row>
-      
+        <Row>
+            <Col span={12}><Title>Điện thoại</Title></Col>
+            <Col span={12}> <Col1> <Link to ="/admin/product/add" ><PlusSquareTwoTone  /></Link></Col1>   </Col>
+        </Row>
 
-<Table columns={columns} dataSource={data} />
-</>
+
+        <Table columns={columns} dataSource={data} />
+    </>
 
 );
+
+// const Title1 = styled.title`
+// position: absolute;
+// width: 111px;
+// height: 28px;
+// left: 326px;
+// top: 89px;
+
+// font-family: 'Poppins';
+// font-style: normal;
+// font-weight: 600;
+// font-size: 20px;
+// line-height: 30px;
+
+
+// `
+
 
 export default ProductList;

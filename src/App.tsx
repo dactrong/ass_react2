@@ -6,6 +6,7 @@ import Home from './client/Home'
 import Dasboard from './admin/Dasboard'
 import styled from './styled-component'
 import ProductList from './admin/products/ProductList'
+import ProductAdd from './admin/products/ProductAdd'
 
 function App() {
   const [count, setCount] = useState(0)
@@ -16,6 +17,9 @@ function App() {
         <Route path='/' element={<Home />}></Route>
         <Route path='/admin' element={<Dasboard />}>
           <Route index element={<ProductList />} />
+          <Route path='product' >
+            <Route path ='add' element={<ProductAdd />}/>
+        </Route>
         </Route>
       </Routes>
     </div>
