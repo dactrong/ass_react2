@@ -1,33 +1,38 @@
 import { useState } from 'react'
 import logo from './logo.svg'
 import './App.css'
-import { Route, Routes } from 'react-router-dom'
-import Home from './client/Home'
-import Dasboard from './admin/Dasboard'
-import styled from './styled-component'
-import ProductList from './admin/products/ProductList'
-import ProductAdd from './admin/products/ProductAdd'
-import Signin from './auth/signin'
-import ProductDetail from './admin/products/ProductDetail'
+import {Routes, Route} from 'react-router-dom'
+import ProductAdminPage from './pages/Admin/Product/product'
+import CategoriesPage from './pages/Admin/categories'
+import AdminLayout from './components/Layout/admin'
+import UserLayout from './components/Layout/user'
+import HomePage from './pages/Home/home'
+import AddProductPage from './pages/Admin/Product/add'
+import DetailPage from './pages/Home/Detail'
+import EditProduct from './pages/Admin/Product/edit'
+import SigninPage from './pages/Auth/signin'
 
-function App() {
+function App(props: any) {
   const [count, setCount] = useState(0)
-
   return (
     <div className="App">
       <Routes>
-        <Route path='/app' element={<ProductDetail/>}></Route>
-        <Route path='/' element={<Home />}></Route>
-        <Route path='/admin' element={<Dasboard />}>
-          <Route index element={<ProductList />} />
-          <Route path='product' >
-            <Route path ='add' element={<ProductAdd />}/>
+        {/* Auth */}
+        <Route path='/signin' element={<SigninPage/>}/>
+        {/* User layout */}
+        <Route path='/' element={<UserLayout/>}>
+          <Route index element={<HomePage/>}/>
+          <Route path='detail' element={<DetailPage/>}/>
         </Route>
+        {/* Admin layout */}
+        <Route path='admin' element={<AdminLayout/>}>
+          <Route index element={<ProductAdminPage/>}/>
+          <Route path='product/add' element={<AddProductPage/>}/>
+          <Route path='product/edit' element={<EditProduct/>}/>
+          <Route path='categories' element={<CategoriesPage/>}/>
         </Route>
-        <Route path='/signin' element ={<Signin/>}></Route>
       </Routes>
     </div>
-
   )
 }
 

@@ -1,26 +1,26 @@
 import React from "react";
 import styled from "styled-components";
 import { Typography, Col, Row, Button, Checkbox, Form, Input, InputNumber, Select, message } from 'antd'
-import UploadImage from "../../Product/UploadImage";
-// import { createProduct } from "../../../api/product";
+import UploadImage from "../../../components/Product/UploadImage";
+import { createProduct } from "../../../api/product";
 import { useNavigate } from "react-router-dom";
-// import UploadTest from "../../../components/Product/UploadTest";
+import UploadTest from "../../../components/Product/UploadTest";
 
 const { TextArea } = Input
 const { Option } = Select;
 
-const ProductAdd: React.FC = () => {
+const AddProductPage: React.FC = () => {
 	const navigate = useNavigate()
 	const onFinish = async (values: any) => {
 		console.log('Success:', values);
 
-		// try {
-		// 	const data = await createProduct(values)
-		// 	message.success("Tạo mới thành công")
-		// 	navigate(-1)
-		// } catch (err) {
-		// 	message.error("Có lỗi xảy ra")
-		// }
+		try {
+			const data = await createProduct(values)
+			message.success("Tạo mới thành công")
+			navigate(-1)
+		} catch (err) {
+			message.error("Có lỗi xảy ra")
+		}
 	};
 
 	const onFinishFailed = (errorInfo: any) => {
@@ -135,4 +135,4 @@ const Label = styled.div`
 	font-size: 13px;
 `
 
-export default ProductAdd
+export default AddProductPage
