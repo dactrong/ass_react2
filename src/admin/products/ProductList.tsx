@@ -1,5 +1,5 @@
-import { Col, Row, Space, Table, Tag, Typography } from 'antd';
-import React from 'react';
+import { Col, Row, Space, Switch, Table, Tag, Typography } from 'antd';
+import React, { useState } from 'react';
 import { FormOutlined, CloseOutlined, PlusSquareTwoTone } from '@ant-design/icons'
 import styled from 'styled-components'
 import { Link } from 'react-router-dom';
@@ -35,8 +35,8 @@ const columns = [
     },
     {
         title: 'Ẩn/hiện',
-        key: 'icon1',
-        dataIndex: 'icon1',
+        key: 'iccon',
+        dataIndex: 'iccon',
 
     }
 ];
@@ -48,7 +48,7 @@ const data = [
         money: '10.000đ',
         desc: 'Lorem Ipsum chỉ đơn giản là một đoạn văn bản giả, ',
         icon: <FormOutlined />,
-        icon1: <CloseOutlined />
+        iccon:<Switch/>
 
     },
     {
@@ -58,7 +58,7 @@ const data = [
         money: '10.000đ',
         desc: 'Lorem Ipsum chỉ đơn giản là một đoạn văn bản giả, ',
         icon: <FormOutlined />,
-        icon1: <CloseOutlined />
+        iccon:<Switch/>
     },
     {
         key: '3',
@@ -67,24 +67,35 @@ const data = [
         money: '10.000đ',
         desc: 'Lorem Ipsum chỉ đơn giản là một đoạn văn bản giả, ',
         icon: <FormOutlined />,
-        icon1: <CloseOutlined />
+        
+        iccon:<Switch/>
     },
 ];
+
 const { Title } = Typography;
 
 
-const ProductList = () => (
-    <>
-        <Row>
-            <Col span={12}><Title>Điện thoại</Title></Col>
-            <Col span={12}> <Col1> <Link to ="/admin/product/add" ><PlusSquareTwoTone  /></Link></Col1>   </Col>
-        </Row>
+const ProductList: React.FC = () => {
+    const [loading, setLoading] = useState(true);
+
+    const onChange = (checked: boolean) => {
+        setLoading(!checked);
+    };
+    return (
+        <>
+            <Switch checked={!loading} onChange={onChange} />
+            <Row>
+                <Col span={12}><Title>Điện thoại</Title></Col>
+                <Col span={12}> <Title> <Link to="/admin/product/add" ><PlusSquareTwoTone/></Link></Title> </Col>
+            </Row>
 
 
-        <Table columns={columns} dataSource={data} />
-    </>
+            <Table columns={columns} dataSource={data } loading={!loading} />
+        </>
 
-);
+    );
+}
+
 
 // const Title1 = styled.title`
 // position: absolute;
