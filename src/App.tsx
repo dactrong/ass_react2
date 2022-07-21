@@ -28,7 +28,7 @@ function App(props: any) {
         <Route path='admin' element={<AdminLayout/>}>
           <Route index element={<ProductAdminPage/>}/>
           <Route path='product/add' element={<AddProductPage/>}/>
-          <Route path='product/edit' element={<EditProduct/>}/>
+          <Route path='product/edit/:id' element={<EditProduct/>}/>
           <Route path='categories' element={<CategoriesPage/>}/>
         </Route>
       </Routes>
