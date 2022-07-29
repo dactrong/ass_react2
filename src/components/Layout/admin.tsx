@@ -1,9 +1,11 @@
 import { PhoneOutlined, LaptopOutlined, TabletFilled, AudioOutlined, SettingOutlined } from '@ant-design/icons';
-import type { MenuProps } from 'antd';
+import { Col, MenuProps, Row } from 'antd';
 import { Breadcrumb, Layout, Menu } from 'antd';
 import React from 'react';
 import { Link, Outlet } from 'react-router-dom'
 import styled from 'styled-components';
+import AutoComplete from "../Input/AutoComplete";
+
 
 import LogoImage from '../../assets/images/logo.png'
 
@@ -23,9 +25,19 @@ const item3: MenuProps['items'] = [
 const App: React.FC = () => (
   <Layout>
     <HeaderCustom>
-      <Logo src={LogoImage} />
+    
       {/* <Menu theme="dark" mode="horizontal" defaultSelectedKeys={['2']} items={items1} /> */}
+      <Row>
+      <Col flex="100px"> <Logo src={LogoImage} /></Col>
+      <Col flex="1100px"><AutoComplete/></Col>
+      <Col flex="200px">Xin Chào Đắc Trọng</Col>
+    </Row>
+       
+      
+      
+ 
     </HeaderCustom>
+    
     <Layout>
       <Sider
         collapsible={true}
@@ -51,8 +63,8 @@ const App: React.FC = () => (
 const HeaderCustom = styled(Header)`
     background-color: #00B0D7;
     height: 64px;
-    display: flex;
-    align-items: center;
+    
+   
 `
 
 const Logo = styled.img`

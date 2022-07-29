@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import styled from "styled-components";
-import { Typography, Button, Table, Space, Image, Modal, Select } from "antd";
+import { Typography, Button, Table, Space, Image, Modal, Select, Switch } from "antd";
 import { Link } from "react-router-dom";
 import {
   SearchOutlined,
@@ -36,7 +36,7 @@ const ProductList = () => {
       render: (text) => <a>{text}</a>,
     },
     {
-      title: "img sản phẩm",
+      title: "Ảnh sản phẩm",
       dataIndex: "img",
       key: "img",
       render: (text: string, record: ProductType) => {
@@ -49,6 +49,7 @@ const ProductList = () => {
       key: "feature",
       render: (text) => <a>{text}</a>,
     },
+    
     {
       title: "Giá khuyến mãi",
       dataIndex: "saleOffPrice",
@@ -60,9 +61,12 @@ const ProductList = () => {
       key: "description",
     },
     {
-      title: "Ẩn hiện",
+      title: "Ẩn/hiện",
       dataIndex: "hidden",
       key: "hidden",
+      render:(record) =>(
+         <Switch/>
+      ) ,
     },
     {
       title: "Action",
@@ -140,8 +144,7 @@ if(value === undefined){
         <Typography.Title level={2} style={{ margin: 0 }}>
           Điện thoại
         </Typography.Title>
-        <Space>
-          <h4>lọc</h4>
+        {/* <Space>
           <Select
             style={{ width: "100%" }}
             size="large"
@@ -154,7 +157,7 @@ if(value === undefined){
               </Option>
             ))}
           </Select>
-        </Space>
+        </Space> */}
         <Link to="/admin/product/add">
           <Button type="dashed" shape="circle" icon={<PlusOutlined />} />
         </Link>

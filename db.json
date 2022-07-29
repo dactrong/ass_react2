@@ -20,22 +20,40 @@
   ],
   "products": [
     {
-      "id": 3,
-      "name": "Trần Thị Kiều123",
-      "originalPrice": 123,
-      "saleOffPrice": 11,
-      "feature": "123123",
-      "description": "1231231",
-      "img": "http://res.cloudinary.com/dectee66b/image/upload/v1658378396/f9e9e5uqutmifulhxyjv.jpg"
-    },
-    {
-      "img": "http://res.cloudinary.com/dectee66b/image/upload/v1658378361/i0tcoiqustjwhh1tnorg.png",
-      "name": "Nguyễn Đắc Trọng",
+      "id": 4,
+      "name": "Nguyễn Đắc Trọng123",
+      "originalPrice": 13123,
       "saleOffPrice": 121,
       "feature": "123",
-      "description": "1231",
-      "categoryId": 3,
-      "id": 4
+      "description": "1231123",
+      "img": "http://res.cloudinary.com/dectee66b/image/upload/v1658452762/vmqpaqgs9ukero4ffvno.jpg"
+    },
+    {
+      "img": "http://res.cloudinary.com/dectee66b/image/upload/v1658450271/kz86dtifopfb7idghopk.jpg",
+      "name": "Iphon 12 pro max",
+      "saleOffPrice": 1231,
+      "feature": "123123sda",
+      "description": "ádasdads",
+      "categoryId": 2,
+      "id": 7
+    },
+    {
+      "img": "http://res.cloudinary.com/dectee66b/image/upload/v1658452728/gznrsrl5j9anxrsem3jx.jpg",
+      "name": "12qwe12",
+      "saleOffPrice": 12,
+      "feature": "qweqweqw",
+      "description": "qweqwe",
+      "categoryId": 2,
+      "id": 8
+    },
+    {
+      "img": "http://res.cloudinary.com/dectee66b/image/upload/v1658452729/pfaqwu6rojwxtbtcdzx1.jpg",
+      "name": "12qwe12",
+      "saleOffPrice": 12,
+      "feature": "qweqweqw",
+      "description": "qweqwe",
+      "categoryId": 2,
+      "id": 9
     }
   ]
 }

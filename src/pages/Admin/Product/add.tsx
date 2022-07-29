@@ -1,18 +1,6 @@
 import React, { useEffect, useState } from "react";
 import styled from "styled-components";
-import {
-  Typography,
-  Col,
-  Row,
-  Button,
-  Checkbox,
-  Form,
-  Input,
-  InputNumber,
-  Select,
-  message,
-  UploadFile,
-} from "antd";
+import { Typography, Col, Row, Button, Checkbox, Form, Input, InputNumber, Select, message, UploadFile, } from "antd";
 import UploadImage from "../../../components/Product/UploadImage";
 import { createProduct } from "../../../api/product";
 import { useNavigate } from "react-router-dom";
@@ -43,7 +31,7 @@ const AddProductPage = () => {
     };
     try {
       const data = await createProduct(valueAdd);
-      message.success("Tạo mới thành công");
+      message.success("Thêm mới thành công");
       navigate(-1);
     } catch (err) {
       message.error("Có lỗi xảy ra");
@@ -55,7 +43,7 @@ const AddProductPage = () => {
       try {
         const { data } = await getAllCategory();
         setCategory(data);
-      } catch (error) {}
+      } catch (error) { }
     };
     getCategory();
   }, []);
@@ -113,6 +101,8 @@ const AddProductPage = () => {
               <p>Thêm ảnh!</p>
             </Dragger>
           </Form.Item>
+          
+          
         </Col>
         <Col span={14}>
           <Typography.Title level={5}>Thông tin sản phẩm</Typography.Title>
@@ -157,7 +147,7 @@ const AddProductPage = () => {
                   dependencies={["originalPrice"]}
                   labelCol={{ span: 24 }}
                   rules={[
-                    { required: true, message: "Giá sản phẩm"},
+                    { required: true, message: "Giá sản phẩm" },
                     ({ getFieldValue }) => ({
                       validator(_, value) {
                         if (!value || getFieldValue("originalPrice") <= value) {
@@ -182,13 +172,13 @@ const AddProductPage = () => {
                 <Form.Item
                   label="Phân loại"
                   name="categoriesId"
-                  rules={[{ required: true }]}
+                  rules={[{ required: true , message: "Phân loại"}]}
                 >
                   <Select
                     style={{ width: "100%" }}
                     size="large"
                     placeholder="Phân loại "
-                  
+
                   >
                     {category.map((item, index) => (
                       <Option value={item.id} key={index}>

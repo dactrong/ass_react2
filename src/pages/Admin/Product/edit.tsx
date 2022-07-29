@@ -123,6 +123,7 @@ const EditProduct: React.FC = () => {
               <p>Thêm ảnh!</p>
             </Dragger>
           </Form.Item>
+        
         </Col>
         <Col span={14}>
           <Typography.Title level={5}>Thông tin sản phẩm</Typography.Title>
@@ -183,7 +184,7 @@ const EditProduct: React.FC = () => {
                 <Form.Item
                   label="Phân loại"
                   name="categories"
-                  rules={[{ required: true }]}
+                  rules={[{ required: true, message:"Phân loại" }]}
                 >
                   <Select
                     style={{ width: "100%" }}
